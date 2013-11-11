@@ -24,14 +24,11 @@ $(document).ready(function() {
   });
 
   $('li.menu-newsletter').find('a').each(function () {
-   $(this).attr('href', '#');
+   $(this).attr('href', '#newsletter');
    $(this).attr('data-target', '#newsletter');
    $(this).attr('data-toggle', 'modal');
   });
 
-
-
-  
   $('a.pdfbutton').each(function () {
    $(this).attr('class', 'list-group-item');
   });
