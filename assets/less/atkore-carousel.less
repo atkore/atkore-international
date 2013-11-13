@@ -64,29 +64,6 @@
   }
 }
 
-body[class*="kaf-tech"] {
-	#carousel-home {
-		.item:nth-child(1) {
-			img {
-				max-width: 75%;
-			}
-		}
-		.item:nth-child(2) {
-			.carousel-caption {
-				width: 45%;
-			}
-		}
-		.item:nth-child(3) {
-			img {
-				max-width: 65%;
-			}
-			.carousel-caption {
-				width: 35%;
-			}
-		}
-	}
-}
-
 #carousel-wrap {
 	background-color: #000;
   .positioning-absolute;
@@ -145,8 +122,14 @@ body[class*="kaf-tech"] {
 }
 
 body[class*="kaf-tech"] {
-	#carousel-home {
+	#carousel-wrap {
+		background-color: #fff;
+			@media (max-width: @screen-sm) {
+	  		top: 175px!important;
+			}
+			#carousel-home {
 	 .carousel-caption {
+	 	background-color: transparent!important;
 	 	@media (min-width: @screen-md) {
 	  	bottom: 10px;
 		}
@@ -155,10 +138,84 @@ body[class*="kaf-tech"] {
 		 background-color: rgba(0,0,0,0.2);
 		 }
 		}
+		.item:nth-child(1) {
+			img {
+				max-width: 65%;
+				@media (max-width: @screen-xs) {
+					max-width: 35%!important;
+				}
+				@media (max-width: @screen-sm) {
+					max-width: 45%!important;
+				}
+				@media (max-width: @screen-md) {
+					max-width: 55%!important;
+				}
+				@media (max-width: @screen-lg) {
+					max-width: 65%!important;
+				}
+			}
+			.carousel-caption {
+				@media (max-width: @screen-sm) {
+					width: 100%;
+					top: 0;
+				}
+				@media (max-width: @screen-md) {
+					top: 0;
+				}
+		}
+		
+		.item:nth-child(2) {
 
+			.carousel-caption {
+				width: 45%;
+				@media (max-width: @screen-sm) {
+					width: 100%;
+					top: 0;
+				}
+			}
+		}
+		
+		.item:nth-child(3) {
+			img {
+				max-width: 65%;
+				@media (max-width: @screen-xs) {
+					max-width: 35%!important;
+				}
+				@media (max-width: @screen-sm) {
+					max-width: 45%!important;
+				}
+				@media (max-width: @screen-md) {
+					max-width: 55%!important;
+				}
+				@media (max-width: @screen-lg) {
+					max-width: 65%!important;
+				}
+			}
+			.carousel-caption {
+				width: 35%;
+				@media (max-width: @screen-sm) {
+					width: 100%;
+					top: 0;
+				}
+			}
+		}
+	}
+}
 	}
 }
 
+
+body[class*="kaf-tech"].page-rep-locator header {
+	top: 80px!important;
+}
+
+		
+body[class*="afc"] {
+	#carousel-wrap {
+		background-color: #fff;
+	}
+}
+		
 body[class*="afc"] #carousel-home .carousel-caption  .carousel-caption-wrap {
 	background-color: rgba(0,0,0,0.5);
 }
@@ -216,7 +273,7 @@ body[class*="unistrutfallprotection"] #carousel-home .carousel-caption {
 			top: 0;
 			width: 75px;
 			height: 100%;
-			
+			z-index: 100;
 				&.left {
 				background-image: #ffffff;
 				background-image: -webkit-linear-gradient(right, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
@@ -249,18 +306,20 @@ body[class*="unistrutfallprotection"] #carousel-home .carousel-caption {
 			background-repeat: no-repeat;
 			background-color: transparent;
 			margin: 45px 0 0;
+			position: absolute;
+			z-index: 1002;
 	  &.right {
 			background-image: none!important;
 			background-repeat: no-repeat;
 			background-color: transparent;
-	    right: 0;
+	    right: -60px;
 	  }
 	  &.left {
 			background-image: none!important;
 			background-repeat: no-repeat;
 			background-color: transparent;
 	    //.flipImageH;
-	    left: 0;
+	    left: -60px;
 	  }
 
 	@media (min-width: @screen-md) and (max-width: @screen-md-max) {
@@ -325,7 +384,7 @@ body[class*="unistrutfallprotection"] #carousel-home .carousel-caption {
   #carousel-brands ul li:nth-of-type(4),
   #carousel-brands ul li:nth-of-type(5),
   #carousel-brands ul li:nth-of-type(6) {
-	   @media (max-width: @screen-sm) {
+	   @media (max-width: @screen-md) {
 	   display: none;
 	   }
 	   @media (min-width: @screen-md) {
@@ -351,6 +410,8 @@ body[class*="unistrutfallprotection"] #carousel-home .carousel-caption {
 	.brand-logo-wrap {
     	width: 60%;
     	margin: 0 auto;
+    	position: relative;
+    	z-index: 101;
     @media (max-width: @screen-sm) {
 			
 	    height: @brands-carousel-height-sm;
@@ -402,6 +463,8 @@ body[class*="unistrutfallprotection"] #carousel-home .carousel-caption {
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
+    z-index: 4000;
+    position: relative;
     @media (min-width: @screen-xs) {
 	  	width: 30%;
 	    margin-left: auto;
@@ -527,3 +590,49 @@ body[class*="unistrutfallprotection"] #carousel-home .carousel-caption {
 	   margin: 6% 0;
 	   }
   }
+  
+
+.thumbnail-wrap,
+img.featured-product {
+  @media (max-width: @screen-md){
+	  margin: 0 auto;
+	  float: none;
+	  clear: both;
+	  right: 0;
+	  left: 0;
+	  text-align: center;
+   }
+  }
+  
+  .sequence-content {
+	  @media (max-width: @screen-md){
+	  	height: 230px;
+	  	display: block;
+	  	width: 100%;
+	  	text-align: center;
+	  }
+  }
+  
+.button-wrap {
+	@media (max-width: @screen-md){
+		width: 100%;
+		text-align: center;
+		right: 0;
+		left: 0;
+		bottom: 20px;
+		position: absolute;
+	}
+  .btn-featured {
+	  @media (max-width: @screen-md){
+		  margin: 0 auto;
+		  width: 60%;
+		  float: none;
+		  clear: both;
+		  right: 0;
+		  left: 0;
+		  bottom: 20px;
+		  position: absolute;
+		  text-align: center;
+	   }
+   }
+ }
