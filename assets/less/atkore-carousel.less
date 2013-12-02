@@ -1,5 +1,13 @@
 @carousel-height: 450px;
 @carousel-width: 100%;
+@brands-carousel-height-xs: auto;
+@brands-carousel-height-sm: 50px;
+@brands-carousel-height-md: 120px;
+@brands-carousel-height-lg: 120px;
+@margin-top-brand-logo-xs: 45%;
+@margin-top-brand-logo-sm: 30%;
+@margin-top-brand-logo-md: 20%;
+@margin-top-brand-logo-lg: 5%;
 
 .carousel ul li {
   list-style: none;
@@ -21,17 +29,6 @@
   padding: 0;
   width: @carousel-width;
   height: @carousel-height;
-}
-
-
-#carousel-wrap {
-  .positioning-absolute;
-  z-index: 0;
-}
-
-#carousel-home {
-  .positioning-absolute;
-  overflow: hidden;
 }
 
 .carousel-fade {
@@ -67,88 +64,173 @@
   }
 }
 
+#carousel-wrap {
+	background-color: #000;
+  .positioning-absolute;
+  z-index: 0;
+	@media (max-width: @screen-sm) {
+	  	top: 310px;
+	 }
+}
 
-  
-  #carousel-home .item img {
-          position: absolute;
-          right: 0;
-          max-width: none;
-          bottom: 0;
+#carousel-home {
+  .positioning-absolute;
+  overflow: hidden;
+  .item img {
+    position: absolute;
+    right: 0;
+    max-width: none;
+    bottom: 0;
   }
-
-  #carousel-home .item:nth-child(1) .carousel-caption {
-          
-  }
-  
-  #carousel-home .item:nth-child(2) .carousel-caption {
-
-  }
-  
-  #carousel-home .item:nth-child(3) .carousel-caption {
-
-  }
-
-
+}
 
 #carousel-home .carousel-caption {
   bottom: 0;
   text-align: left;
   width: 50%;
-}
-
-#carousel-home .carousel-control {
-    padding-top: 230px;
+  padding-top: 230px;
+  .carousel-caption-wrap {
+	background-color: rgba(0,0,0,0.5);
+	padding: 20px!important;
+		h1 {
+		  font-size: 18px;
+			color: #fff;
+			background-color: transparent!important;
+		  margin: 0 auto;
+		  padding: 10px!important;
+			  @media (min-width: @screen-sm) {
+	    		font-size: 21px;
+				}
+				@media (min-width: @screen-md) {
+	    		font-size: 24px;
+				}
+				@media (min-width: @screen-lg) {
+	    		font-size: 30px;
+				}
+		}
+		p {
+			color: #fff;
+			background-color: transparent!important;
+			margin: 0 auto;
+			padding: 10px!important;
+		}
   }
 
+	@media (min-width: @screen-md) {
+	  	bottom: 50px;
+	}
+}
 
-#carousel-home .item:nth-child(1) img {
+body[class*="kaf-tech"] {
+	#carousel-wrap {
+		background-color: #fff;
+			@media (max-width: @screen-sm) {
+	  		top: 185px!important;
+			}
+			#carousel-home {
+				.carousel-caption {
+						background-color: transparent!important;
+						@media (min-width: @screen-md) {
+							bottom: 10px;
+					}
+				}
+				.carousel-caption-wrap {
+					background-color: rgba(0,0,0,0.2);
+					h1, p { color: #000!important; }
+				}
+				.item:nth-child(1) {
+				img {
+					max-width: 75%;
+					@media (max-width: @screen-xs) {
+						max-width: 45%!important;
+					}
+					@media (max-width: @screen-sm) {
+						max-width: 55%!important;
+					}
+					@media (max-width: @screen-md) {
+						max-width: 65%!important;
+					}
+					@media (max-width: @screen-lg) {
+						max-width: 75%!important;
+					}
+				}
+				.carousel-caption {
+					@media (max-width: @screen-md) {
+						width: 100%;
+						top: 0!important;
+						bottom: auto!important;
+					}
+				}
+			}
+				.item:nth-child(2) {
+			.carousel-caption {
+				width: 45%;
+				@media (max-width: @screen-md) {
+					width: 100%;
+					top: 0!important;
+					bottom: auto!important;
+				}
+			}
+		}
+				.item:nth-child(3) {
+			img {
+				max-width: 45%;
+				@media (max-width: @screen-xs) {
+					max-width: 45%!important;
+				}
+				@media (max-width: @screen-sm) {
+					max-width: 55%!important;
+				}
+				@media (max-width: @screen-md) {
+					max-width: 60%!important;
+				}
+				@media (max-width: @screen-lg) {
+					max-width: 65%!important;
+				}
+			}
+			.carousel-caption {
+					width: 35%;
+						@media (max-width: @screen-md) {
+							width: 100%;
+							top: 0!important;
+							bottom: auto!important;
+						}
+					}
+				}
+			}
+	}
+}
 
-  }
-  
-  
-  
-#carousel-home .item:nth-child(2) img {
+	
+body[class*="afc"] {
+	#carousel-wrap {
+		background-color: #fff;
+	}
+}
+		
+body[class*="afc"] #carousel-home .carousel-caption  .carousel-caption-wrap {
+	background-color: rgba(0,0,0,0.5);
+}
 
+body[class*="unistrut"] #carousel-home .carousel-caption  .carousel-caption-wrap {
+	background-color: rgba(0,0,0,0.5);
+}
+
+body[class*="unistrutfallprotection"] #carousel-home .carousel-caption  .carousel-caption-wrap {
+	background-color: rgba(0,0,0,0.75);
 }
 
 
-
-#carousel-home .carousel-caption.plain {
-  padding: 0;
-  color: #fff;
-  background-color: transparent;
-  -moz-box-shadow:0 0 0;
-  -webkit-box-shadow:0 0 0;
-  box-shadow: 0 0 0;
-}
-
-
-#carousel-home .carousel-caption h1 {
-  font-size: 18px;
-  margin: 0 auto 20px auto;
-}
-
-#carousel-home .carousel-caption.plain h1,
-#carousel-home .carousel-caption.plain p {
-  background-color: rgba(0,0,0,0.4);
-  padding: 10px;
-}
-
-
-#carousel-home .carousel-caption p {
-  margin: 0 auto 20px auto;
-}
-
-
-#carousel-home .carousel-caption .btn {
-
+body[class*="unistrutfallprotection"] #carousel-home .carousel-caption {
+	left: 33%;
+	width: 45%;
 }
 
 .bottom-bar {
   border-top: 1px solid rgba(255,255,255,0.5);
   border-bottom: 1px solid #999;
   height: 30px;
-  background-color:@brand-primary;
+  background-color:	@brand-primary;
   background-image: -moz-radial-gradient(50% 50%, circle cover, @brand-primary, @brand-secondary 50%);
   background-image: -webkit-radial-gradient(50% 50%, circle cover, @brand-primary, @brand-secondary 50%);
   background-image: -o-radial-gradient(50% 50%, circle cover, @brand-primary, @brand-secondary 50%);
@@ -165,189 +247,235 @@
 }
 
 
-
-
 // BRANDS FOOTER CAROUSEL 
 
-@brands-carousel-height-lg: 120px;
-@brands-carousel-height-md: 120px;
-@brands-carousel-height-sm: 120px;
-@brands-carousel-height-xs: auto;
+#brands-footer {
+	.carousel-inner {
+		-webkit-box-shadow: inset 0px 10px 20px -10px rgba(0, 0, 0, 0.35);
+		-moz-box-shadow:    inset 0px 10px 20px -10px rgba(0, 0, 0, 0.35);
+		box-shadow:         inset 0px 10px 20px -10px rgba(0, 0, 0, 0.35);
+		border-top: 1px solid #999;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+	
+		.fade-block {
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 75px;
+			height: 100%;
+			z-index: 100;
+				&.left {
+				background-image: #ffffff;
+				background-image: -webkit-linear-gradient(right, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: -moz-linear-gradient(right, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: -o-linear-gradient(right, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: -ms-linear-gradient(right, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: linear-gradient(right, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: -webkit-gradient(linear, right top, left top, color-stop(0, rgba(255,255,255,0.0)), color-stop(0.72, rgb(255,255,255)), color-stop(1, rgb(255,255,255)));
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff",GradientType=1);
+				background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImcxMzgyMjAwOTEyNzQyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjEwMCUiIHkxPSI1MCUiIHgyPSIwJSIgeTI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PHN0b3Agb2Zmc2V0PSI3MiUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+ICA8L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZzEzODIyMDA5MTI3NDIpIiAvPjwvc3ZnPg==);
+				left: 0;
+			}
+	
+			&.right {
+				background-image: #ffffff;
+				background-image: -webkit-linear-gradient(left, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: -moz-linear-gradient(left, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: -o-linear-gradient(left, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: -ms-linear-gradient(left, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: linear-gradient(left, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 72%, rgb(255,255,255) 100%);
+				background-image: -webkit-gradient(linear, left top, right top, color-stop(0, rgba(255,255,255,0.0)), color-stop(0.72, rgb(255,255,255)), color-stop(1, rgb(255,255,255)));
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff",GradientType=1);
+				background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMSAxIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIj48bGluZWFyR3JhZGllbnQgaWQ9ImcxMzgyMjAwODk0NzAzIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iNTAlIiB4Mj0iMTAwJSIgeTI9IjUwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+PHN0b3Agb2Zmc2V0PSI3MiUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+ICA8L2xpbmVhckdyYWRpZW50PjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZzEzODIyMDA4OTQ3MDMpIiAvPjwvc3ZnPg==);
+				right: 0;
+			}
+		}
+	
+	.carousel-control {
+			background-image: none!important;
+			background-repeat: no-repeat;
+			background-color: transparent;
+			margin: 45px 0 0;
+			position: absolute;
+			z-index: 1002;
+	  &.right {
+			background-image: none!important;
+			background-repeat: no-repeat;
+			background-color: transparent;
+	    right: -90px;
+	  }
+	  &.left {
+			background-image: none!important;
+			background-repeat: no-repeat;
+			background-color: transparent;
+	    //.flipImageH;
+	    left: -90px;
+	  }
 
-@margin-top-brand-logo-xs: 45%;
-@margin-top-brand-logo-sm: 35%;
-@margin-top-brand-logo-md: 25%;
-@margin-top-brand-logo-lg: 15%;
+	@media (min-width: @screen-md) and (max-width: @screen-md-max) {
+  //background: url('//assets.atkore.com/img/arrow-right-circle.png') 90% 40% no-repeat transparent!important;
+	}
+	
+	// Large screen / wide desktop
+	@media (min-width: @screen-lg) {
+  //background: url('//assets.atkore.com/img/arrow-right-circle.png') 70% 40% no-repeat transparent!important;
+	}
 
-
-#carousel-brands .carousel-inner {
--webkit-box-shadow: inset 0px 10px 20px -10px rgba(0, 0, 0, 0.35);
--moz-box-shadow:    inset 0px 10px 20px -10px rgba(0, 0, 0, 0.35);
-box-shadow:         inset 0px 10px 20px -10px rgba(0, 0, 0, 0.35);
-border-top: 1px solid #999;
-overflow-x: hidden;
-overflow-y: hidden!important;
+	// Large screen / wide desktop
+	@media (min-width: 1800px) {
+  //background: url('//assets.atkore.com/img/arrow-right-circle.png') 30% 40% no-repeat transparent!important;
+	}
+	  
+	}
+	#carousel-brands ul {
+	  vertical-align: middle;
+	  text-align: center;
+	  margin: auto;
+	  padding: 0;
+		li {
+			margin: auto;
+			
+			a {
+				img {
+					
+				}
+			}
+		}
+	}
 }
 
-#carousel-brands .carousel-inner::before {
-/*background-color: #ffffff;*/
-background-image: -webkit-gradient(linear, left center, right center, from(rgba(255, 255, 255, 1.00)), to(rgba(255, 255, 255, 0.00)));
-background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-background-image: -o-linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-background-image: linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-//filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#ffffff', EndColorStr='#ffffff');
-width: 75px;
-display: block;
-position: absolute;
-top: 0;
-left: 0;
-height: 100%;
-z-index: 200;
-border: 5px solid #000;
-z-index: 6000;
-}
-
-#carousel-brands .carousel-inner::after {
-/*background-color: #ffffff;*/
-background-image: -webkit-gradient(linear, left center, right center, from(rgba(255, 255, 255, 1.00)), to(rgba(255, 255, 255, 0.00)));
-background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-background-image: -o-linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-background-image: linear-gradient(left, rgba(255, 255, 255, 1.00), rgba(255, 255, 255, 0.00));
-//filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#ffffff', EndColorStr='#ffffff');
-width: 75px;
-display: block;
-position: absolute;
-top: 0;
-right: 0;
-height: 100%;
-z-index: 6000;
-}
-
-
-#brands-footer .carousel-control {
-  background: url('//www.atkore.com/media/arrow-right-green.png') center center no-repeat transparent;
-}
-
-#brands-footer .carousel-control.left {
-          -moz-transform: scaleX(-1);
-          -o-transform: scaleX(-1);
-          -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
-          filter: FlipH;
-          -ms-filter: "FlipH";
-}
-
-#brands-footer .carousel-control.right {
-
-}
-
-.carousel-control-wrapper span {
-
-}
-
-.carousel-control-wrapper .left span {
-
-}
-
-.carousel-control-wrapper .right span {
-
-}
-
-#carousel-brands ul li,
-#carousel-brands ul li img {
-  margin: auto; 
-}
-
-#carousel-brands ul,
-#carousel-brands ul li,
-#carousel-brands ul li a {
-    vertical-align: middle;
-    text-align: center;
-    margin: auto;
-  }
-
-  #carousel-brands ul {
-    margin: 0!important;
-    padding: 0!important;
-  }
-
-  #carousel-brands ul li {
-
-  }
-
-  .brand-logo-wrap {
-    width: 40%;
-  }
-
-  li[class^=brand-] .brand-logo-wrap {
-    margin-top: 0;
-  }
-
-  .brand-unistrut-construction .brand-logo-wrap,
-  .brand-unistrut .brand-logo-wrap,
-  .brand-columbia-mbf .brand-logo-wrap,
-  .brand-power-strut .brand-logo-wrap,
-  .brand-razor-ribbon .brand-logo-wrap,
-  .brand-kaf-tech .brand-logo-wrap,
-  .brand-tectron-tube .brand-logo-wrap,
-  .brand-sprinkflex .brand-logo-wrap {
-    margin: 20px auto;
-  }
-
-  .brand-flexhead-industries .brand-logo-wrap,
-  .brand-cope .brand-logo-wrap,
-  .brand-eastern-wire-conduit .brand-logo-wrap,
-  .brand-allied-tube-conduit .brand-logo-wrap {
-    margin: 15px auto;
-  }
-
-  .brand-acsuni-fab .brand-logo-wrap,
-  .brand-acroba .brand-logo-wrap,
-  .brand-atkore-international .brand-logo-wrap,
-  .brand-afc .brand-logo-wrap {
-    margin: 10px auto;
-  }
-
-  #carousel-brands ul li a img {
-    margin: auto;
-    -webkit-filter: grayscale(1);
-    -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);
-    -ms-filter: grayscale(100%); -o-filter: grayscale(100%);
-    filter: url(//www.atkore.com/assets/svg/desaturate.svg#greyscale);
-    filter: gray; filter: grayscale(100%);
-  }
-  
-  #carousel-brands ul li a:hover img {
-    -webkit-filter: none;
-    -webkit-filter: none; -moz-filter: none;
-    -ms-filter: none; -o-filter: none;
-    filter: none;
-    filter: none; filter: none;
-  }
-  
-
-  
-
-
-@media (min-width: @screen-sm) {
-  #carousel-brands .item,
+	#carousel-brands .item,
   #carousel-brands ul,
   #carousel-brands ul li,
   #carousel-brands ul li a {
-    max-height: @brands-carousel-height-sm;
-    height: @brands-carousel-height-sm;
+    text-align: center;
     vertical-align: middle;
+		background-repeat: no-repeat;
+		background-position: center center;
+    @media (min-width: @screen-sm) {
+    min-height: inherit;
+    }
   }
   
-  .brand-logo-wrap {
-    width: 30%;
-    margin: 0 auto;
+
+  
+  #carousel-brands ul li:nth-of-type(4) {
+	   @media (min-width: @screen-xs) {
+	   clear: left;
+	   }
+	   @media (min-width: @screen-sm) {
+	   
+	   }
+	   @media (min-width: @screen-md) {
+	   clear: none;
+	   }
   }
   
+  #carousel-brands ul li:nth-of-type(4),
+  #carousel-brands ul li:nth-of-type(5),
+  #carousel-brands ul li:nth-of-type(6) {
+	   @media (max-width: @screen-md) {
+	   display: none;
+	   }
+	   @media (min-width: @screen-md) {
+	   display: block;
+	   }
+  }
+  
+  #carousel-brands ul li:nth-of-type(1) .brand-logo-wrap {
+	  	@media (max-width: @screen-sm) {
+	  	margin-top: 5px;
+	  }
+  }
+  #carousel-brands ul li:nth-of-type(2) .brand-logo-wrap,
+  #carousel-brands ul li:nth-of-type(3) .brand-logo-wrap {
+	  	@media (max-width: @screen-sm) {
+	  	margin-top: 10px;
+			}
+  }
+
+  
+
+
+	.brand-logo-wrap {
+    	width: 60%;
+    	margin: 0 auto;
+    	position: relative;
+    	z-index: 101;
+    @media (max-width: @screen-sm) {
+			
+	    height: @brands-carousel-height-sm;
+			width: 40%;
+			img {
+	    	margin: 0 auto;
+			}
+    }
+    @media (min-width: @screen-sm) {
+	    height: @brands-carousel-height-md;
+	    margin: 0 auto;
+			width: 50%;
+    }
+    @media (min-width: @screen-md) {
+	    height: @brands-carousel-height-lg;
+	    width: 60%;
+    }
+    @media (min-width: @screen-lg){
+	  width: 75%;
+    }
+    
+		a {
+
+		}
+		
+    img {
+	    margin: 0 auto;
+		}
+
+  }
+  
+  .brand-logo {
+  @media (min-width: @screen-sm) {
+	  	margin: 20px auto 30px!important;
+	  	}
+  }
+  
+  
+   #carousel-brands {
+	   @media (max-width: @screen-sm) {
+	   ul {
+		    padding-top: 20px!important;
+	    }
+    }
+    }
+  
+
+  li[class^=brand-] .brand-logo-wrap {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 4000;
+    position: relative;
+    @media (min-width: @screen-xs) {
+	  	width: 30%;
+	    margin-left: auto;
+	    margin-right: auto;
+    }
+    @media (min-width: @screen-sm) {
+	    margin-left: auto;
+	    margin-right: auto;
+    }
+    @media (min-width: @screen-md) {
+	    margin-left: auto;
+	    margin-right: auto;
+    }
+    @media (min-width: @screen-lg) {
+	    margin-left: auto;
+	    margin-right: auto;
+    }
+  }
+
   .brand-unistrut-construction .brand-logo-wrap,
   .brand-unistrut .brand-logo-wrap,
   .brand-columbia-mbf .brand-logo-wrap,
@@ -355,85 +483,148 @@ z-index: 6000;
   .brand-razor-ribbon .brand-logo-wrap,
   .brand-kaf-tech .brand-logo-wrap,
   .brand-tectron-tube .brand-logo-wrap,
-  .brand-sprinkflex .brand-logo-wrap {
+  .brand-sprinkflex .brand-logo-wrap,
+  .brand-ridgeline-pipe .brand-logo-wrap,
+  .brand-heritage-plastics .brand-logo-wrap {
+    width: 80%;
     margin-top: @margin-top-brand-logo-sm;
+    @media (min-width: @screen-sm) {
+    	
+    }
   }
   
+  .brand-power-strut .brand-logo-wrap {
+    width: 90%;
+    margin-top: @margin-top-brand-logo-md;
+    @media (min-width: @screen-sm) {
+    	
+    }
+  }
+  
+  .brand-tectron-tube .brand-logo-wrap {
+    width: 95%;
+    margin-top: @margin-top-brand-logo-sm;
+    @media (min-width: @screen-sm) {
+    	
+    }
+  }
+  
+  .brand-columbia-mbf .brand-logo-wrap {
+    width: 90%;
+    margin-top: @margin-top-brand-logo-sm;
+    @media (min-width: @screen-sm) {
+    	
+    }
+  }
+  
+  .brand-heritage-plastics .brand-logo-wrap {
+    margin-top: 20px;
+    width: 85%;
+    @media (min-width: @screen-sm) {
+    	
+    }
+  }
+
   .brand-flexhead-industries .brand-logo-wrap,
   .brand-cope .brand-logo-wrap,
   .brand-eastern-wire-conduit .brand-logo-wrap,
   .brand-allied-tube-conduit .brand-logo-wrap {
     margin-top: @margin-top-brand-logo-md;
+    @media (min-width: @screen-md) {
+    	
+    }
   }
   
-  .brand-acsuni-fab .brand-logo-wrap,
-  .brand-acroba .brand-logo-wrap,
-  .brand-atkore-international .brand-logo-wrap,
-  .brand-afc .brand-logo-wrap {
-    margin-top: @margin-top-brand-logo-lg;
+  .brand-eastern-wire-conduit .brand-logo-wrap {
+    margin-top: 20px;
   }
-  
-  #carousel-home .carousel-caption h1 {
-    font-size: 30px;
-  }
-  
-}
 
-@media (min-width: @screen-md) {
-  #carousel-brands .item,
-  #carousel-brands ul,
-  #carousel-brands ul li,
-  #carousel-brands ul li a {
-    max-height: @brands-carousel-height-md;
-    height: @brands-carousel-height-md;
+  .brand-afc-cable-systems .brand-logo-wrap {
+    width: 75%;
+    margin-top: 10px;
+    @media (min-width: @screen-lg) {
+    	
+    }
   }
   
-  .brand-atkore-international .brand-logo-wrap {
-    width: 30%;
-  }
-  
-  #carousel-home .carousel-caption {
-  bottom: 50px;
-  }
-  
-  #carousel-home .carousel-caption h1 {
-  font-size: 30px;
-  }
-  
-  
-}
-
-@media (min-width: @screen-lg) {
-  #carousel-brands .item,
-  #carousel-brands ul,
-  #carousel-brands ul li,
-  #carousel-brands ul li a {
-    max-height: @brands-carousel-height-lg;
-    height: @brands-carousel-height-lg;
-  }
-  
-  .brand-logo-wrap {
-    max-height: @brands-carousel-height-lg;
-    height: @brands-carousel-height-lg;
+  .brand-acsuni-fab .brand-logo-wrap {
     width: 70%;
+    margin-top: 5px;
   }
   
-  .brand-acsuni-fab .brand-logo-wrap,
-  .brand-acroba .brand-logo-wrap,
-  .brand-atkore-international .brand-logo-wrap,
-  .brand-afc .brand-logo-wrap {
-    margin-top: @margin-top-brand-logo-lg;
-  }
-
   .brand-atkore-international .brand-logo-wrap {
-    width: 35%;
+    width: 50%;
+    margin-top: 10px;
+  @media (min-width: @screen-md){
+
+    }
+  @media (min-width: @screen-lg){
+
+    }
   }
-
-}
-
-@media (max-width: @screen-xs-max) {
   
-}
-@media (min-width: @screen-sm) and (max-width: @screen-sm-max) {
+  .brand-acroba .brand-logo-wrap {
+    margin-top: 10px;
+    width: 65%;
+    @media (min-width: @screen-lg) {
+    	
+    }
+  }
+  #carousel-brands ul {
+	  @media (max-width: @screen-sm) {
+	   margin: 6% 0 20% 0;
+	   }
+  }
   
-}
+  #carousel-brands ul li {
+	  @media (max-width: @screen-sm) {
+	   width: 40%;
+	   margin: 6% 0;
+	   }
+  }
+  
+
+.thumbnail-wrap,
+img.featured-product {
+  @media (max-width: @screen-md){
+	  margin: 0 auto;
+	  float: none;
+	  clear: both;
+	  right: 0;
+	  left: 0;
+	  text-align: center;
+   }
+  }
+  
+  .sequence-content {
+	  @media (max-width: @screen-md){
+	  	height: 230px;
+	  	display: block;
+	  	width: 100%;
+	  	text-align: center;
+	  }
+  }
+  
+.button-wrap {
+	@media (max-width: @screen-md){
+		width: 100%;
+		text-align: center;
+		right: 0;
+		left: 0;
+		bottom: 20px;
+		position: absolute;
+	}
+  .btn-featured {
+	  @media (max-width: @screen-md){
+		  margin: 0 auto;
+		  width: 60%;
+		  float: none;
+		  clear: both;
+		  right: 0;
+		  left: 0;
+		  bottom: 20px;
+		  position: absolute;
+		  text-align: center;
+	   }
+   }
+ }

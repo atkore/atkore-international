@@ -14,7 +14,7 @@ if ( ! function_exists('atkore_post_type_events') ) {
 
 // Register Custom Post Types
 function atkore_post_type_events() {
-    $admin_img_path = 'http://atkore.com/assets/img/atkore-admin-icon.png';
+    $admin_img_path = '//atkore.com/assets/img/atkore-admin-icon.png';
   	$labels = array(
   		'name'                => _x( 'Events', 'Post Type General Name', 'atkore' ),
   		'singular_name'       => _x( 'Event', 'Post Type Singular Name', 'atkore' ),
@@ -39,7 +39,8 @@ function atkore_post_type_events() {
   		'label'               => __( 'Events', 'atkore' ),
   		'description'         => __( 'Events', 'atkore' ),
   		'labels'              => $labels,
-  		'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', ),
+  		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', ),
+  		//'taxonomies'          => array( '',),
   		'rewrite'             => $rewrite,
   		'hierarchical'        => false,
   		'public'              => true,
@@ -47,7 +48,7 @@ function atkore_post_type_events() {
   		'show_in_menu'        => true,
   		'show_in_nav_menus'   => true,
   		'show_in_admin_bar'   => false,
-  		'menu_position'       => 55,
+  		'menu_position'       => 5,
   		'menu_icon'           => $admin_img_path,
   		'can_export'          => true,
   		'has_archive'         => false,

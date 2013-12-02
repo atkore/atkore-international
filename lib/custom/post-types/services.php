@@ -14,7 +14,7 @@ if ( ! function_exists('atkore_post_type_services') ) {
 
 // Register Custom Post Types
 function atkore_post_type_services() {
-    $admin_img_path = 'http://atkore.com/assets/img/atkore-admin-icon.png';
+    $admin_img_path = '//atkore.com/assets/img/atkore-admin-icon.png';
   	// Services Post Type
   	$labels = array(
   		'name'                => _x( 'Services', 'Post Type General Name', 'atkore' ),
@@ -41,7 +41,7 @@ function atkore_post_type_services() {
   		'description'         => __( 'Services information pages', 'atkore' ),
   		'labels'              => $labels,
   		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes',),
-  		'taxonomies'          => array( 'category','post_tag'),
+  		'taxonomies'          => array( 'post_tag'),
   		'rewrite'             => $rewrite,
   		'hierarchical'        => true,
   		'public'              => true,
@@ -49,7 +49,7 @@ function atkore_post_type_services() {
   		'show_in_menu'        => true,
   		'show_in_nav_menus'   => true,
   		'show_in_admin_bar'   => true,
-  		'menu_position'       => 1.9,
+  		'menu_position'       => 5,
   		'menu_icon'           => $admin_img_path,
   		'can_export'          => true,
   		'has_archive'         => true,

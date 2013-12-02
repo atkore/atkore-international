@@ -2,6 +2,7 @@
 // http://wordpress.org/extend/plugins/oauth-twitter-feed-for-developers/
 ?>
 <div class="panel panel-default">
+	<div class="panel-heading">Twitter</div>
   <div class="panel-body">
 <?php
 $tweets = getTweets(1);//change number up to 20 for number of tweets
@@ -65,7 +66,7 @@ foreach($tweets as $tweet){
         //    The Tweet timestamp must always be linked to the Tweet permalink.
         echo '
           <p class="timestamp">
-              <a href="https://twitter.com/YOURUSERNAME/status/'.$tweet['id_str'].'" target="_blank">
+              <a href="https://twitter.com/AtkoreIntl/status/'.$tweet['id_str'].'" target="_blank">
                   '.date('h:i A M d',strtotime($tweet['created_at']. '- 8 hours')).'
               </a>
           </p>';// -8 GMT for Pacific Standard Time
@@ -89,7 +90,7 @@ foreach($tweets as $tweet){
     } else {
         echo '
         <br /><br />
-        <a href="http://twitter.com/YOURUSERNAME" target="_blank">Click here to read YOURUSERNAME\'S Twitter feed</a>';
+        <a href="http://twitter.com/AtkoreIntl" target="_blank">Click here to read AtkoreIntl\'S Twitter feed</a>';
     }
 }
 } ?>

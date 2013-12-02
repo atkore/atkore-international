@@ -1,19 +1,24 @@
 <?php
-$posttype = 'brand';
-$number_of_posts = -1;
-$startframe = 0;
-$exclude = array('-4988','-4952','-4950','-4948','-4946','-4944','-4931','-4929');
-$args = array(
-  'post_type'     => $posttype,
-  'post__not_in'  => $exclude,
-  'posts_per_page' => $number_of_posts,
-  'orderby' => 'rand',
+$metaquery              = array(
+        array(
+            'key'       => 'include_in_footer',
+            'value'     => '1',
+            'compare'   => 'LIKE'
+        ));
+$posttype               = 'brand';
+$number_of_posts        = -1;
+$startframe             = 0;
+$args                   = array(
+  'post_type'           => $posttype,
+  'posts_per_page'      => $number_of_posts,
+  'orderby'             => 'rand',
+  'meta_query'        => $metaquery,
 );
-$the_query = new WP_Query( $args );
-$classes = 'item';
+$the_query              = new WP_Query( $args );
+$classes                = 'item';
 ?>
 <div class="container">
-  <div id="carousel-brands" class="carousel slide" data-interval="">
+  <div id="carousel-brands" class="carousel slide">
     <div class="carousel-inner">
     <?php $i = 0 ?>
       <div class="item active">
@@ -26,27 +31,35 @@ $classes = 'item';
       </div><!-- /.item -->
       <?php $i = 0 ?>
       <div class="item">
-      <div class="row">
-        <ul>
+	      <div class="row">
+	        <ul>
           <?php endif; ?>
-          <?php
-            $classes = array(
-              'col-xs-12 col-sm-6 col-md-3 col-lg-2'
-            );
-          ?>
-          <li <?php post_class($classes);?>><div class="brand-logo-wrap"><a title="<?php the_title();?>" href="<?php the_field('brand_website');?>"><?php if ( has_post_thumbnail() ) { the_post_thumbnail('full', array('class' => 'img-responsive')); } ?></a></div></li>
+          <?php $classes = array('col-xs-12 col-sm-4 col-md-2 col-lg-2');?>
+          <li <?php post_class($classes);?>>
+          	<?php $graylogo          			= get_field('brand_logo_gray');?>
+          	<?php $colorlogo         			= get_field('brand_logo_color');?>
+						<?php $attachment_id          = get_post_thumbnail_id();?>
+						<?php $size                   = "full"; ?>
+						<?php $image_attributes       = wp_get_attachment_image_src( $graylogo, $size );?>
+						<?php $gray_image_attributes  = wp_get_attachment_image_src( $graylogo, $size );?>
+						<?php $color_image_attributes = wp_get_attachment_image_src( $colorlogo, $size );?>
 
+						<div class="brand-logo-wrap">
+							<a title="<?php the_title();?>" href="<?php the_field('brand_website');?>"><img class="swap-<?php the_ID();?> swap img-responsive" alt="<?php the_title();?>" src="<?php echo $gray_image_attributes[0]; ?>" data-rollover="<?php echo $color_image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" /></a>
+						</div>
+					</li>
           <?php $i++ ?>
           <?php endwhile; ?>
         </ul>
-      </div>
+	      </div>
       </div>
     </div>
-
-  </div>
+    <div class="fade-block white left reset-filter"></div>
+    <div class="fade-block white right reset-filter"></div>
     <div class="carousel-control-wrapper">
-      <a class="carousel-control left" href="#carousel-brands" data-slide="prev"><span class=""></span></a>
-      <a class="carousel-control right" href="#carousel-brands" data-slide="next"><span class=""></span></a>
+      <a class="carousel-control left reset-filter" href="#carousel-brands" data-slide="prev"><img src="/assets/img/arrow-left-circle.png"></a>
+      <a class="carousel-control right reset-filter" href="#carousel-brands" data-slide="next"><img src="/assets/img/arrow-right-circle.png"></a>
     </div>
+  </div>
 </div>
-<?php wp_reset_query();?>
+<?php wp_reset_query();

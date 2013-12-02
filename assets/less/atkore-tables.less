@@ -1,13 +1,33 @@
 // ! TABLES
 
-table.table {
+table {
+	text-align: center;
+	.shadowed{
 	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
 	   -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
 	        box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
+	 }
+	 thead {
+		 	 th, td {
+	 		background-color: @brand-primary;
+		  color: #fff;
+			font-weight: bold;
+			text-transform: uppercase;
+			font-size: percentage(0.8);
+			line-height: percentage(1.0)!important;
+			background-color: lighten(@brand-primary, 5%);
+			white-space: pre-line;
+			
+			-webkit-box-shadow: inset 0 -4px 3px -3px rgba(0,0,0,0.3);
+	   -moz-box-shadow: inset 0 -4px 3px -3px rgba(0,0,0,0.3);
+	      box-shadow: inset 0 -4px 3px -3px rgba(0,0,0,0.3);
+			border-left: 1px solid @brand-primary;
+			}
+	 }
 
-.table th, .table td {
-  text-align: center;
+	 td {
+		 white-space: pre-line;
+	 }
 }
 
 thead tr th[colspan="6"],
@@ -17,56 +37,38 @@ thead tr th[colspan="3"]{
 
 }
 
-table th {
-  color: #fff;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: percentage(0.8);
-  line-height: percentage(1.0)!important;
-  background-color: lighten(@brand-primary, 5%);
-  white-space: pre-line;
-}
-
-
-.table-bordered th {
-	-webkit-box-shadow: inset 0 -4px 3px -3px rgba(0,0,0,0.3);
-	   -moz-box-shadow: inset 0 -4px 3px -3px rgba(0,0,0,0.3);
-	        box-shadow: inset 0 -4px 3px -3px rgba(0,0,0,0.3);
-  border-left: 1px solid @brand-primary;
-}
-
-table th {
-  background-color: @brand-primary;
-}
-
-table td {
-  white-space: pre-line;
-}
 
 .title-row:first-of-type td {
   background-color: #A0CC75;
 }
 
-thead [colspan] {
-  text-align: center;
+thead [colspan],
+tbody td[colspan] {
+  text-align: left;
 }
 
 .title-row td,
-.title-row th {
+.title-row th,
+tbody td[colspan] {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 90%;
   line-height: 100% !important;
-  background-color: #eeeeee!important;
+  background-color: #ccc!important;
   -webkit-box-shadow: inset 0 -4px 3px -3px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0 -4px 3px -3px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 -4px 3px -3px rgba(0, 0, 0, 0.2);
-  padding: 5px;
+  padding: 10px;
 }
 
-tbody .title-row td {
+tbody .title-row td,
+tbody td[colspan] {
   text-align: left;
   padding: 7px 15px;
+}
+
+table.atkore-table span {
+	clear: left;
 }
 
 .title-row.black td {
@@ -112,4 +114,59 @@ tbody .title-row td {
 
 table tr td.product-code {
   white-space: nowrap!important;
+}
+
+// From Tablecloth.css //
+
+.table th.center, .table td.center  { text-align:center; }
+.table th.right, .table td.right    { text-align:right; }
+
+.table th.headerSortable:hover {
+  cursor:pointer;
+}
+.table th.headerSortDown {
+  background-image: url('../img/asc.gif');
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right:16px !important;
+}
+.table th.headerSortUp {
+  background-image: url('../img/desc.gif');
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  padding-right:16px !important;
+}
+
+.table tr.highlight td,         .table tr.highlight:hover td,
+.table td.highlight,            .table td.highlight:hover             { background:#FFF9D7 !important; }
+.table tr.highlight-primary td, .table tr.highlight-primary:hover td,
+.table td.highlight-primary,    .table td.highlight-primary:hover     { background:#0074cc !important; color:#FFF; }
+.table tr.highlight-info td,    .table tr.highlight-info:hover td,
+.table td.highlight-info,       .table td.highlight-info:hover        { background:#49afcd !important; color:#FFF; }
+.table tr.highlight-success td, .table tr.highlight-success:hover td,
+.table td.highlight-success,    .table td.highlight-success:hover     { background:#5bb75b !important; color:#FFF; }
+.table tr.highlight-warning td, .table tr.highlight-warning:hover td,
+.table td.highlight-warning,    .table td.highlight-warning:hover     { background:#faa732 !important; color:#FFF; }
+.table tr.highlight-danger td,  .table tr.highlight-danger:hover td,
+.table td.highlight-danger,     .table td.highlight-danger:hover      { background:#da4f49 !important; color:#FFF; }
+.table tr.highlight-inverse td, .table tr.highlight-inverse:hover td,
+.table td.highlight-inverse,    .table td.highlight-inverse:hover     { background:#414141 !important; color:#FFF; }
+
+/* DEFAULT THEME */
+
+.table caption {
+  text-align:left;
+  padding:10px 0;
+}
+
+#sortable-list table {
+	font-size: 80%;
+	td {
+	text-align: left!important;
+	}
+	.column-1 {
+		
+	}
 }

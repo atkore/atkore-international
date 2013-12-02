@@ -4,41 +4,45 @@
  */
 add_theme_support('root-relative-urls');    // Enable relative URLs
 add_theme_support('rewrites');              // Enable URL rewrites
-//add_theme_support('bootstrap-top-navbar');  // Enable Bootstrap's top navbar
+//add_theme_support('bootstrap-top-navbar');// Enable Bootstrap's top navbar
 add_theme_support('bootstrap-gallery');     // Enable Bootstrap's thumbnails component on [gallery]
 add_theme_support('nice-search');           // Enable /?s= to /search/ redirect
 add_theme_support('jquery-cdn');            // Enable to load jQuery from the Google CDN
-add_theme_support( 'woocommerce' );
+add_theme_support('woocommerce'); 					// Enables WooCommerce
+add_theme_support('print'); 								// Enables Print Styles
+add_theme_support('pdfjs'); 								// Enables pdf.js
+add_theme_support('wpml'); 									// Enables WordPress Multi Lingual
+add_theme_support('gravityforms'); 					// Enables GravityForms
 
 /**
  * Configuration values
  */
   $domain = $_SERVER[ 'SERVER_NAME' ];
-  if ($domain == 'atkore.com')  {
+  if ($domain == '*.atkore.com')  {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-1'); // UA-XXXXX-Y
   }
-  if ($domain == 'easternwire.com') {
+  if ($domain == '*.easternwire.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-2'); // UA-XXXXX-Y
   }
-  if ($domain == 'atcfence.com') {
+  if ($domain == '*.atcfence.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-3'); // UA-XXXXX-Y
   }
-  if ($domain == 'kaf-tech.com') {
+  if ($domain == '*.kaf-tech.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-4'); // UA-XXXXX-Y
   }
-  if ($domain == 'alliedtube-sprinkler.com') {
+  if ($domain == '*.alliedtube-sprinkler.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-5'); // UA-XXXXX-Y
   }
-  if ($domain == 'unistrutfallprotection.com') {
+  if ($domain == '*.unistrutfallprotection.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-6'); // UA-XXXXX-Y
   }
-  if ($domain == 'afcweb.com') {
+  if ($domain == '*.afcweb.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-7'); // UA-XXXXX-Y
   }
-  if ($domain == 'unistrut.com') {
+  if ($domain == '*.unistrut.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-8'); // UA-XXXXX-Y
   }
-  if ($domain == 'atc-mechanical.com') {
+  if ($domain == '*.atc-mechanical.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-9'); // UA-XXXXX-Y
   }
 
@@ -85,7 +89,7 @@ function roots_display_sidebar() {
      * The second element must be an array even if there's only 1 argument.
      */
     array(
-      'is_404',
+     'is_404',
     ),
     /**
      * Page template checks (via is_page_template())
@@ -93,9 +97,7 @@ function roots_display_sidebar() {
      */
     array(
       'template-custom.php',
-    ),
-    array(
-
+      'template-map.php'
     )
   );
 

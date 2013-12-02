@@ -9,14 +9,20 @@ Author URI: http://maintainweb.co/
 License: GPL
 Copyright: Maintain Web
 */
+// http://wp.tutsplus.com/tutorials/creative-coding/the-rewrite-api-post-types-taxonomies/
+//add_rewrite_tag('%product%','([^/]+)','post_type=');
+//add_rewrite_tag('%product_cat%','([^/]+)','product_cat=');
+
+//add_permastruct('product', '%product_cat%/%product%');
+//add_permastruct('product_cat', '/%product_cat%');
 
 if ( ! function_exists('atkore_post_type_products') ) {
 
 // Register Custom Post Types
 function atkore_post_type_products() {
-    $admin_img_path = 'http://atkore.com/assets/img/atkore-admin-icon.png';
+    $admin_img_path = '//atkore.com/assets/img/atkore-admin-icon.png';
 
-  	$labels = array(
+ 	$labels = array(
   		'name'                => _x( 'Products', 'Post Type General Name', 'atkore' ),
   		'singular_name'       => _x( 'Product', 'Post Type Singular Name', 'atkore' ),
   		'menu_name'           => __( 'Products', 'atkore' ),
@@ -31,64 +37,57 @@ function atkore_post_type_products() {
   		'not_found'           => __( 'No products found', 'atkore' ),
   		'not_found_in_trash'  => __( 'No products found in Trash', 'atkore' ),
   	);
-  	
-  	$rewrite = array(
-  	  'slug'                => 'product',
-  	  'with_front'          => false,
-  	  'hierarchical'        => true,
-  	);
+
+	$rewrite = array(
+		'slug'                => 'products',
+		'with_front'          => false,
+		'pages'               => true,
+		'feeds'               => true,
+	);
 
   	$args = array(
-  		'label'                 => __( 'product', 'atkore' ),
+  		'label'                 => __( 'Product', 'atkore' ),
   		'description'           => __( 'Product information pages', 'atkore' ),
   		'labels'                => $labels,
   		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes', ),
-  		'taxonomies'            => array(),
+  		'taxonomies'            => array('product_brand', 'product_cat', 'product_tag'),
   		'hierarchical'          => true,
   		'public'                => true,
   		'show_ui'               => true,
   		'show_in_menu'          => true,
   		'show_in_nav_menus'     => true,
   		'show_in_admin_bar'     => true,
-  		'menu_position'         => 1.7,
+  		'menu_position'         => 5,
   		'menu_icon'             => $admin_img_path,
   		'can_export'            => true,
   		'has_archive'           => true,
   		'exclude_from_search'   => false,
   		'publicly_queryable'    => true,
   		'capability_type'       => 'page',
-  		'rewrite'               => $rewrite,
-  		//'capabilities'          => $capabilities,
+   		'rewrite'               => $rewrite,
   	);
 
   	register_post_type( 'product', $args );
 
   	$labels = array(
-  		'name'                       => _x( 'Brand', 'Taxonomy General Name', 'atkore' ),
-  		'singular_name'              => _x( 'Brand', 'Taxonomy Singular Name', 'atkore' ),
-  		'menu_name'                  => __( 'Brands', 'atkore' ),
-  		'all_items'                  => __( 'All Brands', 'atkore' ),
-  		'parent_item'                => __( 'Parent Brand', 'atkore' ),
-  		'parent_item_colon'          => __( 'Parent Brand:', 'atkore' ),
-  		'new_item_name'              => __( 'New Brand Name', 'atkore' ),
-  		'add_new_item'               => __( 'Add New Brand', 'atkore' ),
-  		'edit_item'                  => __( 'Edit Brand', 'atkore' ),
-  		'update_item'                => __( 'Update Brand', 'atkore' ),
-  		'separate_items_with_commas' => __( 'Separate Brand with commas', 'atkore' ),
-  		'search_items'               => __( 'Search Brands', 'atkore' ),
-  		'add_or_remove_items'        => __( 'Add or remove Brand', 'atkore' ),
-  		'choose_from_most_used'      => __( 'Choose from the most used Brands', 'atkore' ),
+  		'name'                       => _x( 'Product Brand', 'Taxonomy General Name', 'atkore' ),
+  		'singular_name'              => _x( 'Product Brand', 'Taxonomy Singular Name', 'atkore' ),
+  		'menu_name'                  => __( 'Product Brands', 'atkore' ),
+  		'all_items'                  => __( 'All Product Brands', 'atkore' ),
+  		'parent_item'                => __( 'Parent Product Brand', 'atkore' ),
+  		'parent_item_colon'          => __( 'Parent Product Brand:', 'atkore' ),
+  		'new_item_name'              => __( 'New Product Brand Name', 'atkore' ),
+  		'add_new_item'               => __( 'Add New Product Brand', 'atkore' ),
+  		'edit_item'                  => __( 'Edit Product Brand', 'atkore' ),
+  		'update_item'                => __( 'Update Product Brand', 'atkore' ),
+  		'separate_items_with_commas' => __( 'Separate Product Brand with commas', 'atkore' ),
+  		'search_items'               => __( 'Search Product Brands', 'atkore' ),
+  		'add_or_remove_items'        => __( 'Add or remove Product Brand', 'atkore' ),
+  		'choose_from_most_used'      => __( 'Choose from the most used Product Brands', 'atkore' ),
   	);
 
-  	$capabilities = array(
-  		'manage_terms'               => 'manage_categories',
-  		'edit_terms'                 => 'manage_categories',
-  		'delete_terms'               => 'manage_categories',
-  		'assign_terms'               => 'edit_posts',
-  	);
-  	
   	$rewrite = array(
-  	  'slug'                => 'brand',
+  	  'slug'                => 'product-category',
   	  'with_front'          => false,
   	  'hierarchical'        => true,
   	);
@@ -101,9 +100,8 @@ function atkore_post_type_products() {
   		'show_admin_column'          => true,
   		'show_in_nav_menus'          => true,
   		'show_tagcloud'              => true,
-  		'query_var'                  => 'brand',
+  		'query_var'                  => 'product_brand',
   		'rewrite'                    => $rewrite,
-  		//'capabilities'               => $capabilities,
   	);
 
   	register_taxonomy( 'product_brand', 'product', $args );
@@ -125,19 +123,13 @@ function atkore_post_type_products() {
   		'choose_from_most_used'      => __( 'Choose from the most used Product Categories', 'atkore' ),
   	);
 
-  	$capabilities = array(
-  		'manage_terms'               => 'manage_categories',
-  		'edit_terms'                 => 'manage_categories',
-  		'delete_terms'               => 'manage_categories',
-  		'assign_terms'               => 'edit_posts',
-  	);
-  	
+/*
   	$rewrite = array(
-  	  'slug'                => 'product-category',
+  	  'slug'                => '',
   	  'with_front'          => false,
   	  'hierarchical'        => true,
   	);
-
+*/
   	$args = array(
   		'labels'                     => $labels,
   		'hierarchical'               => true,
@@ -147,56 +139,48 @@ function atkore_post_type_products() {
   		'show_in_nav_menus'          => true,
   		'show_tagcloud'              => true,
   		'query_var'                  => 'product_cat',
-  		'rewrite'                    => $rewrite,
-  		//'capabilities'               => $capabilities,
+  		//'rewrite'                    => $rewrite,
   	);
 
   	register_taxonomy( 'product_cat', 'product', $args );
 
   	$labels = array(
-  		'name'                       => _x( 'Finish', 'Taxonomy General Name', 'atkore' ),
-  		'singular_name'              => _x( 'Finish', 'Taxonomy Singular Name', 'atkore' ),
-  		'menu_name'                  => __( 'Finishes', 'atkore' ),
-  		'all_items'                  => __( 'All Finishes', 'atkore' ),
-  		'parent_item'                => __( 'Parent Finish', 'atkore' ),
-  		'parent_item_colon'          => __( 'Parent Finish:', 'atkore' ),
-  		'new_item_name'              => __( 'New Finish Name', 'atkore' ),
-  		'add_new_item'               => __( 'Add New Finish', 'atkore' ),
-  		'edit_item'                  => __( 'Edit Finish', 'atkore' ),
-  		'update_item'                => __( 'Update Finish', 'atkore' ),
-  		'separate_items_with_commas' => __( 'Separate Finish with commas', 'atkore' ),
-  		'search_items'               => __( 'Search Finishes', 'atkore' ),
-  		'add_or_remove_items'        => __( 'Add or remove Finish', 'atkore' ),
-  		'choose_from_most_used'      => __( 'Choose from the most used Finishes', 'atkore' ),
+  		'name'                       => _x( 'Product Tag', 'Taxonomy General Name', 'atkore' ),
+  		'singular_name'              => _x( 'Product Tag', 'Taxonomy Singular Name', 'atkore' ),
+  		'menu_name'                  => __( 'Product Tags', 'atkore' ),
+  		'all_items'                  => __( 'All Product Tags', 'atkore' ),
+  		'parent_item'                => __( 'Parent Product Tag', 'atkore' ),
+  		'parent_item_colon'          => __( 'Parent Product Tag:', 'atkore' ),
+  		'new_item_name'              => __( 'New Product Tag Name', 'atkore' ),
+  		'add_new_item'               => __( 'Add New Product Tag', 'atkore' ),
+  		'edit_item'                  => __( 'Edit Product Tag', 'atkore' ),
+  		'update_item'                => __( 'Update Product Tag', 'atkore' ),
+  		'separate_items_with_commas' => __( 'Separate product tag with commas', 'atkore' ),
+  		'search_items'               => __( 'Search Product Tags', 'atkore' ),
+  		'add_or_remove_items'        => __( 'Add or remove product tags', 'atkore' ),
+  		'choose_from_most_used'      => __( 'Choose from the most used product tags', 'atkore' ),
   	);
-
-  	$capabilities = array(
-  		'manage_terms'               => 'manage_categories',
-  		'edit_terms'                 => 'manage_categories',
-  		'delete_terms'               => 'manage_categories',
-  		'assign_terms'               => 'edit_posts',
-  	);
-  	
+/*
   	$rewrite = array(
-  	  'slug'                => 'finish',
+  	  'slug'                => '',
   	  'with_front'          => false,
   	  'hierarchical'        => true,
   	);
-
+*/
   	$args = array(
   		'labels'                     => $labels,
-  		'hierarchical'               => true,
+  		'hierarchical'               => false,
   		'public'                     => true,
   		'show_ui'                    => true,
   		'show_admin_column'          => true,
   		'show_in_nav_menus'          => true,
   		'show_tagcloud'              => true,
-  		'query_var'                  => 'finish',
-  		'rewrite'                    => $rewrite,
-  		//'capabilities'               => $capabilities,
+  		'query_var'                  => 'product_tag',
+  		//'rewrite'                    => $rewrite,
   	);
 
-  	register_taxonomy( 'product_finish', 'product', $args );
+  	register_taxonomy( 'product_tag', 'product', $args );
+
 }
 // Hook into the 'init' action
 add_action( 'init', 'atkore_post_type_products', 0 );

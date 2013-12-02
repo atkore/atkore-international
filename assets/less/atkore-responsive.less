@@ -1,9 +1,43 @@
+@media (max-width: @screen-sm) {
+	
+	body.home footer.content-info {
+	position: absolute;
+	top: 800px;
+	width: 100%;
+	}
+	
+	body.home #carousel-home .carousel-caption {
+    bottom: 20%;
+    text-align: left;
+    width: inherit;
+		left: 0px;
+		right: 0px;
+		padding: 0 10%;
+	}
+	
+	
+	body[class*="kaf-tech"] #carousel-home .carousel-caption {
+  background-color: rgba(0,0,0,0.7);
+  padding: 20px;
+  color: #fff;
+	}
+	
+	body[class*="kaf-tech"] footer.content-info {
+	top: 600px;
+	}
+	
+	body.home #carousel-home .carousel-caption {
+    bottom: 0;
+	}
+	
+}
+
+
+
 /* Extra small devices (phones, up to 480px) */
 /* No media query since this is the default in Bootstrap */
   .resource .thumbnail {
     text-align: center;
-
-
   }
   .resource .thumbnail img {
     margin: 0 auto;
@@ -32,13 +66,6 @@
     margin: 20px auto 30px auto;
   }
 
-  .resource .thumbnail  {
-  
-  }
-  .resource .thumbnail img {
-
-  }
-
   .thumbnails > li:nth-of-type(2n+1),
    .thumbnails > li:nth-of-type(4n+1) {
     clear: none;
@@ -64,15 +91,6 @@
     margin: 20px auto 30px auto;
   }
 
-  .resource .thumbnail  {
-
-  }
-
-  .resource .thumbnail img {
-
-  }
-
-
   .thumbnails > li:nth-of-type(2n+1),
   .thumbnails > li:nth-of-type(4n+1) {
     clear: none;
@@ -85,7 +103,26 @@
   }
   
   
+  #carousel-products .carousel-inner {
+	overflow: visible;
+}
+
+
+  img.featured-product {
+	  width: 90px;
+	  right: 10px;
+	  height: 90px;
+	}
+
+.panel .sequence-content {
   
+  p {
+	  font-size: 12px;
+  }
+  
+
+	}
+
 }
 
 /* Large devices (large desktops, 1200px and up) */

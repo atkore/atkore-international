@@ -12,26 +12,26 @@ $(document).ready(function() {
   });
 
   $('#carousel-home').carousel({
-    interval: 8000
+    interval: 8000,
+    wrap: true
   });
 
   $('#carousel-products').carousel({
-    interval: 8000
+    interval: 8000,
+    wrap: true
   });
   
   $('#carousel-brands').carousel({
-    interval: false
+    interval: false,
+    wrap: true
   });
 
   $('li.menu-newsletter').find('a').each(function () {
-   $(this).attr('href', '#');
+   $(this).attr('href', '#newsletter');
    $(this).attr('data-target', '#newsletter');
    $(this).attr('data-toggle', 'modal');
   });
 
-
-
-  
   $('a.pdfbutton').each(function () {
    $(this).attr('class', 'list-group-item');
   });
@@ -65,6 +65,16 @@ $(document).ready(function() {
 
    var activeTab = $('[href=' + location.hash + ']');
    activeTab && activeTab.tab('show');
+
+
+	$('.swap').hover(function(){
+	var e = $(this);
+	e.data('originalSrc', e.attr('src'));
+	e.attr('src', e.attr('data-rollover'));
+	}, function(){
+	var e = $(this);
+	e.attr('src', e.data('originalSrc'));
+	});
 
 });
 
