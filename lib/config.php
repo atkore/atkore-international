@@ -18,31 +18,31 @@ add_theme_support('gravityforms'); 					// Enables GravityForms
  * Configuration values
  */
   $domain = $_SERVER[ 'SERVER_NAME' ];
-  if ($domain == '*.atkore.com')  {
+  if ($domain == 'www.atkore.com')  {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-1'); // UA-XXXXX-Y
   }
-  if ($domain == '*.easternwire.com') {
+  if ($domain == 'www.easternwire.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-2'); // UA-XXXXX-Y
   }
-  if ($domain == '*.atcfence.com') {
+  if ($domain == 'www.atcfence.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-3'); // UA-XXXXX-Y
   }
-  if ($domain == '*.kaf-tech.com') {
+  if ($domain == 'www.kaf-tech.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-4'); // UA-XXXXX-Y
   }
-  if ($domain == '*.alliedtube-sprinkler.com') {
+  if ($domain == 'www.alliedtube-sprinkler.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-5'); // UA-XXXXX-Y
   }
-  if ($domain == '*.unistrutfallprotection.com') {
+  if ($domain == 'www.unistrutfallprotection.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-6'); // UA-XXXXX-Y
   }
-  if ($domain == '*.afcweb.com') {
+  if ($domain == 'www.afcweb.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-7'); // UA-XXXXX-Y
   }
-  if ($domain == '*.unistrut.com') {
+  if ($domain == 'www.unistrut.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-8'); // UA-XXXXX-Y
   }
-  if ($domain == '*.atc-mechanical.com') {
+  if ($domain == 'www.atc-mechanical.com') {
     define('GOOGLE_ANALYTICS_ID', 'UA-39634549-9'); // UA-XXXXX-Y
   }
 

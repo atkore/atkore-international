@@ -7,5 +7,5 @@ require_once locate_template('/lib/custom/post-types/carousel.php');
 require_once locate_template('/lib/custom/post-types/events.php');
 require_once locate_template('/lib/custom/post-types/locations.php');
 require_once locate_template('/lib/custom/post-types/resources.php');
-require_once locate_template('/lib/custom/post-types/projects.php');
-require_once locate_template('/lib/custom/post-types/services.php');
+//require_once locate_template('/lib/custom/post-types/projects.php');
+//require_once locate_template('/lib/custom/post-types/services.php');
