@@ -9,10 +9,6 @@ add_theme_support('bootstrap-gallery');     // Enable Bootstrap's thumbnails com
 add_theme_support('nice-search');           // Enable /?s= to /search/ redirect
 add_theme_support('jquery-cdn');            // Enable to load jQuery from the Google CDN
 add_theme_support('woocommerce'); 					// Enables WooCommerce
-add_theme_support('print'); 								// Enables Print Styles
-add_theme_support('pdfjs'); 								// Enables pdf.js
-add_theme_support('wpml'); 									// Enables WordPress Multi Lingual
-add_theme_support('gravityforms'); 					// Enables GravityForms
 
 /**
  * Configuration values

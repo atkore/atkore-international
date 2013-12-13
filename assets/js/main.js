@@ -1,8 +1,6 @@
 $(document).ready(function() {
 
   $('.nav-tabs a:first').tab('show');
-  
-  $('.selectpicker').selectpicker('');
 
   $('.collapse').collapse();
 
@@ -35,17 +33,6 @@ $(document).ready(function() {
   $('a.pdfbutton').each(function () {
    $(this).attr('class', 'list-group-item');
   });
-  
-  $('.tab-pane .right-side').find('img').each(function () {
-   $(this).attr('class', 'img-thumbnail');
-   $(this).attr('align', 'right');
-  });
-  
-  $('#overview.tab-pane').find('img').each(function () {
-   $(this).attr('class', 'img-thumbnail');
-   $(this).attr('align', 'right');
-  });
-
 
   $('.tagged_as a').each(function () {
    $(this).attr('class', 'label label-primary');
@@ -63,9 +50,8 @@ $(document).ready(function() {
   customClass: "atkore-table table-hover"
 });
 
-   var activeTab = $('[href=' + location.hash + ']');
-   activeTab && activeTab.tab('show');
-
+  var activeTab = $('[href=' + location.hash + ']');
+  activeTab && activeTab.tab('show');
 
 	$('.swap').hover(function(){
 	var e = $(this);

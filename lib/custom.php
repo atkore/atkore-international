@@ -29,7 +29,6 @@ require_once locate_template('/lib/custom/classes.php');
 require_once locate_template('/lib/custom/convert-to-slug.php');
 require_once locate_template('/lib/custom/dropdown.php');
 //require_once locate_template('/lib/custom/filter-ptags-on-images.php');
-require_once locate_template('/lib/custom/wp-advanced-search/wpas.php');
 require_once locate_template('/lib/custom/woocommerce/theme-wrapper.php');
 require_once locate_template('/lib/custom/woocommerce/remove-actions.php');
 
